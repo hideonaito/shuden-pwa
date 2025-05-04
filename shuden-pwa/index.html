@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>終電ナビ</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="manifest" href="manifest.json">
+  <link rel="icon" href="icons/icon-192.png">
+  <meta name="theme-color" content="#2f3ba2">
+  <script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('sw.js').then(() => {
+        console.log("Service Worker registered");
+      });
+    }
+  </script>
+</head>
+<body style="font-family: sans-serif; padding: 20px;">
+  <h2>終電ナビ</h2>
+  <label>目的地を入力:</label>
+  <input id="destination" type="text" placeholder="例：東京駅" style="width: 100%; margin-top: 8px; margin-bottom: 12px;" />
+  <button onclick="searchLastTrain()">終電検索</button>
+
+  <div id="result" style="margin-top: 20px;"></div>
+  <script src="main.js"></script>
+</body>
+</html>
